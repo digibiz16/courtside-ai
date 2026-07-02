@@ -299,7 +299,7 @@ function LicenceGate({ onUnlock }) {
               border:`2px solid ${error ? "rgba(220,38,38,.6)" : "rgba(201,168,76,.2)"}`,
               borderRadius:14, padding: isWide ? "15px 18px" : "13px 16px",
               textAlign:"center", fontFamily:"'JetBrains Mono',monospace", fontWeight:600,
-              fontSize: isWide ? 17 : 14, color:"#fff", letterSpacing:4, outline:"none",
+              fontSize: isWide ? 17 : 16, color:"#fff", letterSpacing:4, outline:"none",
               marginBottom:10, transition:"border-color .2s",
             }}
           />
@@ -330,7 +330,7 @@ function LicenceGate({ onUnlock }) {
 
           <div style={{ display:"flex", alignItems:"center", gap:10, margin: isWide ? "24px 0" : "18px 0" }}>
             <div style={{ height:1, flex:1, background:"rgba(255,255,255,.07)" }}/>
-            <span style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:8,
+            <span style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:9.5,
               color:"rgba(255,255,255,.2)", letterSpacing:1 }}>DON'T HAVE A KEY?</span>
             <div style={{ height:1, flex:1, background:"rgba(255,255,255,.07)" }}/>
           </div>
@@ -361,7 +361,7 @@ function LicenceGate({ onUnlock }) {
       </div>
 
       <div style={{ position:"fixed", bottom:8, left:0, right:0, textAlign:"center",
-        fontFamily:"'JetBrains Mono',monospace", fontSize:7,
+        fontFamily:"'JetBrains Mono',monospace", fontSize:8.5,
         color:"rgba(255,255,255,.12)", letterSpacing:1 }}>
         NOT AFFILIATED WITH THE AELTC OR WIMBLEDON · STATISTICAL ANALYSIS · ENTERTAINMENT ONLY · NOT BETTING ADVICE · 18+
       </div>
@@ -384,11 +384,11 @@ function SectionToggle({ icon, title, subtitle, open, onToggle, badge }) {
         <div>
           <div style={{ display:"flex", alignItems:"center", gap:8 }}>
             <div style={{ fontFamily:"'Inter',sans-serif", fontWeight:700, fontSize:14, color:"#fff" }}>{title}</div>
-            {badge && <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:7.5,
+            {badge && <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:9,
               color:"#22C55E", background:"rgba(34,197,94,.12)", border:"1px solid rgba(34,197,94,.2)",
               borderRadius:4, padding:"2px 6px", letterSpacing:1 }}>{badge}</div>}
           </div>
-          <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:8,
+          <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:9.5,
             color:"rgba(201,168,76,.45)", letterSpacing:1.5, marginTop:2 }}>{subtitle}</div>
         </div>
       </div>
@@ -476,14 +476,14 @@ status must be LIVE, UPCOMING, or COMPLETE. Include score if LIVE or COMPLETE. R
                   background:"rgba(239,68,68,.12)", border:"1px solid rgba(239,68,68,.25)",
                   borderRadius:4, padding:"2px 7px" }}>
                   <div style={{ width:5, height:5, borderRadius:"50%", background:"#ef4444", animation:"pulse .8s infinite" }}/>
-                  <span style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:7.5, color:"#ef4444", letterSpacing:1 }}>LIVE</span>
+                  <span style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:9, color:"#ef4444", letterSpacing:1 }}>LIVE</span>
                 </div>
               )}
-              {isLive && <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:7.5,
+              {isLive && <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:9,
                 color:"#22C55E", background:"rgba(34,197,94,.1)", border:"1px solid rgba(34,197,94,.2)",
                 borderRadius:4, padding:"2px 6px", letterSpacing:1 }}>LIVE DATA</div>}
             </div>
-            <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:8,
+            <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:9.5,
               color:"rgba(201,168,76,.45)", letterSpacing:1.5, marginTop:2 }}>
               {new Date().toLocaleDateString("en-GB", { weekday:"long", day:"numeric", month:"long" }).toUpperCase()} · WIMBLEDON {WIMBLEDON_YEAR}
             </div>
@@ -514,22 +514,22 @@ status must be LIVE, UPCOMING, or COMPLETE. Include score if LIVE or COMPLETE. R
                 transition:"all .15s" }}>
               <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between", marginBottom:8 }}>
                 <div style={{ display:"flex", alignItems:"center", gap:6 }}>
-                  <span style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:8,
+                  <span style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:9.5,
                     color:roundCol(m.round), background:`${roundCol(m.round)}18`,
                     border:`1px solid ${roundCol(m.round)}35`, borderRadius:4, padding:"2px 7px",
                     letterSpacing:.5, fontWeight:700 }}>{m.round}</span>
-                  <span style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:8,
+                  <span style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:9.5,
                     color:"rgba(255,255,255,.3)", letterSpacing:.5 }}>{m.court}</span>
                 </div>
                 <div style={{ display:"flex", alignItems:"center", gap:6 }}>
                   {m.status === "LIVE" && (
                     <div style={{ display:"flex", alignItems:"center", gap:4 }}>
                       <div style={{ width:5, height:5, borderRadius:"50%", background:"#ef4444", animation:"pulse .8s infinite" }}/>
-                      <span style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:8, color:"#ef4444", letterSpacing:1 }}>LIVE</span>
+                      <span style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:9.5, color:"#ef4444", letterSpacing:1 }}>LIVE</span>
                     </div>
                   )}
-                  {m.status === "COMPLETE" && <span style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:8, color:"rgba(255,255,255,.35)" }}>COMPLETE</span>}
-                  {m.status === "UPCOMING" && <span style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:8, color:"#0a84ff" }}>{m.time}</span>}
+                  {m.status === "COMPLETE" && <span style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:9.5, color:"rgba(255,255,255,.35)" }}>COMPLETE</span>}
+                  {m.status === "UPCOMING" && <span style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:9.5, color:"#0a84ff" }}>{m.time}</span>}
                 </div>
               </div>
               <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between" }}>
@@ -537,14 +537,14 @@ status must be LIVE, UPCOMING, or COMPLETE. Include score if LIVE or COMPLETE. R
                   <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:5 }}>
                     <span style={{ fontSize:16 }}>{m.p1f}</span>
                     <span style={{ fontFamily:"'Inter',sans-serif", fontWeight:700, fontSize:14, color:"#fff" }}>{m.p1}</span>
-                    {m.seed1 && <span style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:8,
+                    {m.seed1 && <span style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:9.5,
                       color:"rgba(201,168,76,.5)", background:"rgba(201,168,76,.08)",
                       borderRadius:4, padding:"1px 5px" }}>[{m.seed1}]</span>}
                   </div>
                   <div style={{ display:"flex", alignItems:"center", gap:8 }}>
                     <span style={{ fontSize:16 }}>{m.p2f}</span>
                     <span style={{ fontFamily:"'Inter',sans-serif", fontWeight:700, fontSize:14, color:"#fff" }}>{m.p2}</span>
-                    {m.seed2 && <span style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:8,
+                    {m.seed2 && <span style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:9.5,
                       color:"rgba(201,168,76,.5)", background:"rgba(201,168,76,.08)",
                       borderRadius:4, padding:"1px 5px" }}>[{m.seed2}]</span>}
                   </div>
@@ -597,12 +597,12 @@ function ServePatternAnalyser({ match }) {
         <div style={{ background:"rgba(10,77,42,.2)", border:"1px solid rgba(10,77,42,.3)",
           borderRadius:8, padding:"6px 12px", flex:1, textAlign:"center" }}>
           <div style={{ fontFamily:"'JetBrains Mono',monospace", fontWeight:700, fontSize:18, color:"#22C55E" }}>{pct}%</div>
-          <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:7.5, color:"rgba(255,255,255,.4)", letterSpacing:1 }}>1ST SERVE IN</div>
+          <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:9, color:"rgba(255,255,255,.4)", letterSpacing:1 }}>1ST SERVE IN</div>
         </div>
         <div style={{ background:"rgba(201,168,76,.08)", border:"1px solid rgba(201,168,76,.15)",
           borderRadius:8, padding:"6px 12px", flex:1, textAlign:"center" }}>
           <div style={{ fontFamily:"'JetBrains Mono',monospace", fontWeight:700, fontSize:18, color:"#C9A84C" }}>{ace}</div>
-          <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:7.5, color:"rgba(255,255,255,.4)", letterSpacing:1 }}>ACE RATE</div>
+          <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:9, color:"rgba(255,255,255,.4)", letterSpacing:1 }}>ACE RATE</div>
         </div>
       </div>
       <div style={{ marginBottom:8 }}>
@@ -615,7 +615,7 @@ function ServePatternAnalyser({ match }) {
       </div>
       <div style={{ background:"rgba(239,68,68,.06)", border:"1px solid rgba(239,68,68,.15)",
         borderRadius:8, padding:"8px 10px" }}>
-        <span style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:8, color:"#f87171", letterSpacing:1 }}>WEAKNESS: </span>
+        <span style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:9.5, color:"#f87171", letterSpacing:1 }}>WEAKNESS: </span>
         <span style={{ fontFamily:"'Inter',sans-serif", fontSize:12, color:"rgba(255,255,255,.6)" }}>{weakness}</span>
       </div>
     </div>
@@ -635,7 +635,7 @@ function ServePatternAnalyser({ match }) {
               <PatternRow name={data.p2_name} pct={data.p2_first_serve_pct} ace={data.p2_ace_rate} patterns={data.p2_key_patterns} weakness={data.p2_weakness}/>
               <div style={{ background:"rgba(91,45,140,.1)", border:"1px solid rgba(91,45,140,.2)",
                 borderRadius:12, padding:"12px 14px" }}>
-                <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:8, color:"#9B72CF", letterSpacing:1.5, marginBottom:6 }}>TACTICAL EDGE</div>
+                <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:9.5, color:"#9B72CF", letterSpacing:1.5, marginBottom:6 }}>TACTICAL EDGE</div>
                 <div style={{ fontFamily:"'Inter',sans-serif", fontWeight:700, fontSize:13, color:"#C9A84C", marginBottom:4 }}>{data.tactical_edge} has the serving advantage</div>
                 <div style={{ fontFamily:"'Inter',sans-serif", fontSize:12, color:"rgba(255,255,255,.65)", lineHeight:1.6 }}>{data.insight}</div>
               </div>
@@ -689,7 +689,7 @@ function ChokePointPredictor({ match }) {
       </div>
       <div style={{ fontFamily:"'Inter',sans-serif", fontSize:12, color:"rgba(255,255,255,.5)",
         marginBottom:10, padding:"6px 10px", background:"rgba(255,255,255,.03)", borderRadius:8 }}>{historical}</div>
-      <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:8, color:"rgba(255,255,255,.3)", letterSpacing:1, marginBottom:6 }}>HIGH-PRESSURE MOMENTS</div>
+      <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:9.5, color:"rgba(255,255,255,.3)", letterSpacing:1, marginBottom:6 }}>HIGH-PRESSURE MOMENTS</div>
       {(moments||[]).map((m, i) => (
         <div key={i} style={{ display:"flex", alignItems:"center", gap:8, marginBottom:5 }}>
           <div style={{ width:5, height:5, borderRadius:"50%", background:riskCol(risk), flexShrink:0 }}/>
@@ -712,7 +712,7 @@ function ChokePointPredictor({ match }) {
               <PlayerChoke name={data.p2_name} risk={data.p2_choke_risk} moments={data.p2_risk_moments} historical={data.p2_historical}/>
               <div style={{ background:"rgba(201,168,76,.08)", border:"1px solid rgba(201,168,76,.2)",
                 borderRadius:12, padding:"12px 14px" }}>
-                <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:8, color:"#C9A84C", letterSpacing:1.5, marginBottom:6 }}>CRITICAL MOMENT TO WATCH</div>
+                <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:9.5, color:"#C9A84C", letterSpacing:1.5, marginBottom:6 }}>CRITICAL MOMENT TO WATCH</div>
                 <div style={{ fontFamily:"'Inter',sans-serif", fontSize:13, color:"rgba(255,255,255,.8)", lineHeight:1.6, marginBottom:6 }}>{data.critical_moment}</div>
                 <div style={{ fontFamily:"'Inter',sans-serif", fontSize:12, color:"rgba(255,255,255,.5)", lineHeight:1.5 }}>{data.predicted_momentum}</div>
               </div>
@@ -765,7 +765,7 @@ function UpsetProbability({ match }) {
               {/* Big probability display */}
               <div style={{ background:"rgba(255,255,255,.03)", border:"1px solid rgba(201,168,76,.15)",
                 borderRadius:16, padding:"20px 14px", textAlign:"center" }}>
-                <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:8,
+                <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:9.5,
                   color:"rgba(255,255,255,.35)", letterSpacing:2, marginBottom:8 }}>UPSET PROBABILITY</div>
                 <div style={{ fontFamily:"Georgia,serif", fontWeight:700, fontSize:64,
                   letterSpacing:"-3px", color:vCol(data.verdict), lineHeight:1 }}>{data.upset_probability}%</div>
@@ -778,8 +778,8 @@ function UpsetProbability({ match }) {
                     background:vCol(data.verdict), borderRadius:4, transition:"width 1s ease" }}/>
                 </div>
                 <div style={{ display:"flex", justifyContent:"space-between" }}>
-                  <span style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:8, color:"#22C55E" }}>{data.favourite} wins {100-data.upset_probability}%</span>
-                  <span style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:8, color:vCol(data.verdict) }}>{data.underdog} wins {data.upset_probability}%</span>
+                  <span style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:9.5, color:"#22C55E" }}>{data.favourite} wins {100-data.upset_probability}%</span>
+                  <span style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:9.5, color:vCol(data.verdict) }}>{data.underdog} wins {data.upset_probability}%</span>
                 </div>
               </div>
 
@@ -788,7 +788,7 @@ function UpsetProbability({ match }) {
                 borderRadius:12, padding:"12px 14px", display:"flex", alignItems:"center", gap:10 }}>
                 <div style={{ fontFamily:"'JetBrains Mono',monospace", fontWeight:700, fontSize:11,
                   color:vCol(data.verdict) }}>{data.verdict}</div>
-                <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:8,
+                <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:9.5,
                   color:`${vCol(data.verdict)}88` }}>{data.confidence} CONFIDENCE</div>
               </div>
 
@@ -796,7 +796,7 @@ function UpsetProbability({ match }) {
               <div style={{ display:"flex", gap:10 }}>
                 <div style={{ flex:1, background:"rgba(239,68,68,.05)", border:"1px solid rgba(239,68,68,.15)",
                   borderRadius:12, padding:"12px" }}>
-                  <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:8, color:"#f87171", letterSpacing:1, marginBottom:8 }}>UPSET FACTORS</div>
+                  <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:9.5, color:"#f87171", letterSpacing:1, marginBottom:8 }}>UPSET FACTORS</div>
                   {(data.upset_factors||[]).map((f,i) => (
                     <div key={i} style={{ display:"flex", gap:6, marginBottom:5 }}>
                       <span style={{ color:"#ef4444", fontSize:10, flexShrink:0 }}>↑</span>
@@ -806,7 +806,7 @@ function UpsetProbability({ match }) {
                 </div>
                 <div style={{ flex:1, background:"rgba(34,197,94,.05)", border:"1px solid rgba(34,197,94,.15)",
                   borderRadius:12, padding:"12px" }}>
-                  <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:8, color:"#22C55E", letterSpacing:1, marginBottom:8 }}>UPSET BLOCKERS</div>
+                  <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:9.5, color:"#22C55E", letterSpacing:1, marginBottom:8 }}>UPSET BLOCKERS</div>
                   {(data.upset_blockers||[]).map((f,i) => (
                     <div key={i} style={{ display:"flex", gap:6, marginBottom:5 }}>
                       <span style={{ color:"#22C55E", fontSize:10, flexShrink:0 }}>↓</span>
@@ -893,7 +893,7 @@ function GrassCourtScores() {
                     color:"rgba(255,255,255,.3)" }}>#{i+1}</span>
                   <span style={{ fontSize:18 }}>{p.flag}</span>
                   <span style={{ fontFamily:"'Inter',sans-serif", fontWeight:700, fontSize:14, color:"#fff" }}>{p.player}</span>
-                  {p.seed && <span style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:8,
+                  {p.seed && <span style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:9.5,
                     color:"rgba(201,168,76,.5)", background:"rgba(201,168,76,.08)",
                     borderRadius:4, padding:"1px 5px" }}>[{p.seed}]</span>}
                 </div>
@@ -903,7 +903,7 @@ function GrassCourtScores() {
               {/* Score bars */}
               {[["SERVE",p.serve||p.grass],["MOVEMENT",p.movement||p.grass-0.3],["NET GAME",p.net_game||p.grass-0.5]].map(([label, val]) => (
                 <div key={label} style={{ display:"flex", alignItems:"center", gap:8, marginBottom:5 }}>
-                  <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:7.5,
+                  <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:9,
                     color:"rgba(255,255,255,.3)", width:62, letterSpacing:.5 }}>{label}</div>
                   <div style={{ flex:1, height:5, background:"rgba(255,255,255,.06)", borderRadius:3, overflow:"hidden" }}>
                     <div style={{ height:"100%", width:`${((val||7)/10)*100}%`,
@@ -965,7 +965,7 @@ function ScorePredictor({ match }) {
             <div>
               <div style={{ background:"rgba(201,168,76,.08)", border:"1px solid rgba(201,168,76,.2)",
                 borderRadius:14, padding:"18px", textAlign:"center", marginBottom:12 }}>
-                <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:8, color:"rgba(201,168,76,.5)", letterSpacing:2, marginBottom:8 }}>AI PREDICTED SCORE</div>
+                <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:9.5, color:"rgba(201,168,76,.5)", letterSpacing:2, marginBottom:8 }}>AI PREDICTED SCORE</div>
                 <div style={{ fontFamily:"Georgia,serif", fontWeight:700, fontSize:32,
                   color:"#C9A84C", letterSpacing:"-1px", marginBottom:6 }}>{data.score}</div>
                 <div style={{ fontFamily:"'Inter',sans-serif", fontWeight:700, fontSize:15, color:"#fff", marginBottom:4 }}>
@@ -1112,7 +1112,7 @@ function ChampionshipPredictor() {
               borderRadius:12, padding:"11px 14px", marginTop:10, display:"flex", gap:10 }}>
               <span style={{ fontSize:16 }}>💡</span>
               <div>
-                <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:8, color:"#9B72CF", letterSpacing:1.5, marginBottom:4 }}>
+                <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:9.5, color:"#9B72CF", letterSpacing:1.5, marginBottom:4 }}>
                   DARK HORSE · {data.darkHorse.flag} {data.darkHorse.player?.toUpperCase()} · {data.darkHorse.tour}
                 </div>
                 <div style={{ fontFamily:"'Inter',sans-serif", fontSize:12, color:"rgba(255,255,255,.65)", lineHeight:1.6 }}>{data.darkHorse.reasoning}</div>
@@ -1194,7 +1194,7 @@ function WhatsAppDrop({ match, brutal }) {
                   borderRadius:10, padding:"10px 14px", cursor:"pointer",
                   fontFamily:"'JetBrains Mono',monospace", fontSize:9, color:"rgba(255,255,255,.4)", letterSpacing:1 }}>↻</button>
               </div>
-              <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:7.5,
+              <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:9,
                 color:"rgba(255,255,255,.2)", marginTop:8, textAlign:"right" }}>
                 {drops[tab]?.length || 0} chars
               </div>
@@ -1253,7 +1253,7 @@ Return JSON: [{"p1":"${upcoming[0]?.p1||"Player A"}","p2":"${upcoming[0]?.p2||"P
         padding:"0 12px", height:"100%", flexShrink:0 }}>
         {loading
           ? <div style={{ display:"flex", gap:3 }}>{[0,1,2].map(i=><div key={i} style={{width:4,height:4,borderRadius:"50%",background:"#C9A84C",animation:`pulse 1.2s ${i*.15}s infinite`}}/>)}</div>
-          : <span style={{ fontFamily:"'JetBrains Mono',monospace", fontWeight:700, fontSize:8, color:"#C9A84C", letterSpacing:2 }}>🤖 AI PICKS</span>
+          : <span style={{ fontFamily:"'JetBrains Mono',monospace", fontWeight:700, fontSize:9.5, color:"#C9A84C", letterSpacing:2 }}>🤖 AI PICKS</span>
         }
       </div>
       <div style={{ flex:1, overflow:"hidden" }}>
@@ -1261,11 +1261,11 @@ Return JSON: [{"p1":"${upcoming[0]?.p1||"Player A"}","p2":"${upcoming[0]?.p2||"P
           <div style={{ display:"flex", animation:"tickerScroll 45s linear infinite", width:"max-content", alignItems:"center", height:32 }}>
             {[...preds,...preds].map((p, i) => (
               <span key={i} style={{ display:"inline-flex", alignItems:"center", gap:8, marginRight:32, whiteSpace:"nowrap" }}>
-                <span style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:8, color:"rgba(201,168,76,.5)", letterSpacing:1 }}>PRED</span>
+                <span style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:9.5, color:"rgba(201,168,76,.5)", letterSpacing:1 }}>PRED</span>
                 <span style={{ fontFamily:"'Inter',sans-serif", fontWeight:700, fontSize:12, color:"rgba(255,255,255,.85)" }}>{p.p1f} {p.p1}</span>
                 <span style={{ fontFamily:"Georgia,serif", fontWeight:700, fontSize:15, color:"#C9A84C", padding:"0 3px" }}>{p.score}</span>
                 <span style={{ fontFamily:"'Inter',sans-serif", fontWeight:700, fontSize:12, color:"rgba(255,255,255,.85)" }}>{p.p2} {p.p2f}</span>
-                <span style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:7, color:confCol(p.confidence),
+                <span style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:8.5, color:confCol(p.confidence),
                   background:`${confCol(p.confidence)}18`, borderRadius:4, padding:"1px 5px" }}>{p.confidence}</span>
                 <span style={{ color:"rgba(201,168,76,.18)", fontSize:10 }}>·</span>
               </span>
@@ -1279,7 +1279,7 @@ Return JSON: [{"p1":"${upcoming[0]?.p1||"Player A"}","p2":"${upcoming[0]?.p2||"P
                 <span>{m.p1f}</span><span>{m.p1}</span>
                 <span style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:9, color:"rgba(255,255,255,.2)" }}>vs</span>
                 <span>{m.p2}</span><span>{m.p2f}</span>
-                <span style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:8, color:"#0a84ff" }}>{m.time}</span>
+                <span style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:9.5, color:"#0a84ff" }}>{m.time}</span>
                 <span style={{ color:"rgba(201,168,76,.18)", fontSize:10 }}>·</span>
               </span>
             ))}
@@ -1328,7 +1328,7 @@ function ChatMessage({ msg, isStreaming, animate }) {
         border: isUser ? "1px solid rgba(201,168,76,.25)" : "1px solid rgba(255,255,255,.07)",
         borderRadius: isUser ? "16px 16px 4px 16px" : "16px 16px 16px 4px",
         padding:"12px 14px",
-        fontFamily:"'Inter',sans-serif", fontSize:14, lineHeight:1.7,
+        fontFamily:"'Inter',sans-serif", fontSize:15, lineHeight:1.7,
         color: isUser ? "rgba(255,255,255,.9)" : "rgba(255,255,255,.85)",
         whiteSpace:"pre-wrap",
       }}>
@@ -1426,7 +1426,7 @@ export default function App() {
       </div>
       <div style={{ padding:"4px 14px", flexShrink:0, background:"rgba(8,12,15,.9)",
         borderTop:"1px solid rgba(255,255,255,.04)" }}>
-        <span style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:7.5,
+        <span style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:9,
           color:"rgba(255,255,255,.15)", letterSpacing:.5 }}>
           Statistical analysis · Entertainment only · Not affiliated with AELTC · Not betting advice · 18+
         </span>
@@ -1442,7 +1442,7 @@ export default function App() {
             placeholder={loading ? "Analysing..." : "Ask anything about Wimbledon 2026..."}
             rows={1}
             style={{ flex:1, background:"transparent", border:"none", fontFamily:"'Inter',sans-serif",
-              fontSize:14, color:"#fff", resize:"none", outline:"none", lineHeight:1.5,
+              fontSize:16, color:"#fff", resize:"none", outline:"none", lineHeight:1.5,
               maxHeight:80, overflowY:"auto" }}
             onInput={e => { e.target.style.height="auto"; e.target.style.height=Math.min(e.target.scrollHeight,80)+"px"; }}
           />
@@ -1474,6 +1474,11 @@ export default function App() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900&family=JetBrains+Mono:wght@500;600;700&display=swap');
         *{box-sizing:border-box;margin:0;padding:0}
+        html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+        body,input,textarea,button{font-size:16px}
+        @media (max-width:480px){
+          body{font-size:15px}
+        }
         @keyframes pulse{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:1;transform:scale(1.2)}}
         @keyframes msgIn{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
         @keyframes tickerScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
@@ -1514,10 +1519,10 @@ export default function App() {
               border:"1px solid rgba(201,168,76,.4)", display:"flex", alignItems:"center", justifyContent:"center" }}>🎾</div>
             <div>
               <div style={{ fontFamily:"Georgia,serif", fontWeight:700,
-                fontSize: isDesktop?24:17, letterSpacing:"-0.5px",
+                fontSize: isDesktop?28:19, letterSpacing:"-0.5px",
                 background:"linear-gradient(135deg,#C9A84C,#fff)",
                 WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent" }}>Courtside AI</div>
-              <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:8,
+              <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:9.5,
                 letterSpacing:1.8, marginTop:1, color:"rgba(201,168,76,.4)" }}>WIMBLEDON {WIMBLEDON_YEAR} · AI ANALYST</div>
             </div>
           </div>
@@ -1529,7 +1534,7 @@ export default function App() {
               <div style={{ width:6, height:6, borderRadius:"50%",
                 background: loading ? "#ef4444" : "#22C55E",
                 animation: loading ? "pulse .8s infinite" : "none" }}/>
-              <span style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:8,
+              <span style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:9.5,
                 color: loading ? "#ef4444" : "#22C55E", letterSpacing:1 }}>
                 {loading ? "THINKING" : "LIVE"}
               </span>
@@ -1540,7 +1545,7 @@ export default function App() {
               border:`1.5px solid ${brutal?"rgba(239,68,68,.6)":"rgba(255,255,255,.12)"}`,
               borderRadius:8, padding:"4px 10px", cursor:"pointer", transition:"all .2s" }}>
               <span style={{ fontSize:11 }}>😤</span>
-              <span style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:8,
+              <span style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:9.5,
                 color: brutal?"#ef4444":"rgba(255,255,255,.5)", letterSpacing:1 }}>
                 {brutal ? "BRUTAL" : "BRUTAL"}
               </span>
@@ -1572,10 +1577,10 @@ export default function App() {
               background:"rgba(0,0,0,.2)", flexShrink:0, display:"flex", alignItems:"center", justifyContent:"space-between" }}>
               <div>
                 <div style={{ fontFamily:"'Inter',sans-serif", fontWeight:700, fontSize:15 }}>💬 AI Analyst</div>
-                <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:8,
+                <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:9.5,
                   color:"rgba(201,168,76,.4)", letterSpacing:1.5, marginTop:2 }}>POWERED BY CLAUDE · LIVE WEB SEARCH</div>
               </div>
-              <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:8,
+              <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:9.5,
                 color:"rgba(255,255,255,.2)", letterSpacing:1 }}>ASK ANYTHING ABOUT WIMBLEDON</div>
             </div>
             {CHAT}
@@ -1619,7 +1624,7 @@ export default function App() {
                     border:"1px solid rgba(201,168,76,.4)", display:"flex", alignItems:"center", justifyContent:"center", fontSize:14 }}>🎾</div>
                   <div>
                     <div style={{ fontFamily:"'Inter',sans-serif", fontWeight:700, fontSize:15 }}>AI Analyst</div>
-                    <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:8, color:"rgba(201,168,76,.4)", letterSpacing:1.5 }}>POWERED BY CLAUDE</div>
+                    <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:9.5, color:"rgba(201,168,76,.4)", letterSpacing:1.5 }}>POWERED BY CLAUDE</div>
                   </div>
                 </div>
                 <button onClick={() => setShowChat(false)} style={{ width:34, height:34, borderRadius:9,
