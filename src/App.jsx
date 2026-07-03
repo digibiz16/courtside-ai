@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 
 // ─────────────────────────────────────────────────────────────────────────────
-// COURTSIDE AI — Wimbledon 2026 AI Tennis Analyst
+// COURTSIDE AI — Grass Court Season 2026 AI Tennis Analyst
 // Stack: React + Vite → Vercel | Claude Sonnet 4.6 | Gumroad licence keys
 // Features: Serve Analyser, Choke Point Predictor, Upset Probability,
 //           Grass Court Scores, Score Predictor, Brutal Mode, WhatsApp Drop,
@@ -9,10 +9,10 @@ import { useState, useRef, useEffect, useCallback } from "react";
 // ─────────────────────────────────────────────────────────────────────────────
 
 // ── CONSTANTS ────────────────────────────────────────────────────────────────
-const WIMBLEDON_YEAR = 2026;
+const SEASON_YEAR = 2026; // Grass court season — generic, no tournament trademark
 const GUMROAD_URL    = "https://digibiz06.gumroad.com/l/courtsideai";
 
-// Static Wimbledon 2026 draw data (fallback when API unavailable)
+// Static Grass Court Season 2026 draw data (fallback when API unavailable)
 const STATIC_DRAW = {
   mens: [
     { seed:1, player:"N. Djokovic",  flag:"🇷🇸", grass:9.4, ranking:1 },
@@ -41,7 +41,7 @@ const SUGGESTIONS = [
   { icon:"😰", text:"Who's most likely to choke in a tiebreak?" },
   { icon:"🌿", text:"Which players suit grass best this year?" },
   { icon:"📈", text:"Biggest upset probability today?" },
-  { icon:"🏆", text:"Who wins Wimbledon 2026?" },
+  { icon:"🏆", text:"Who wins Grass Court Season 2026?" },
   { icon:"😤", text:"Brutal verdict on today's matches" },
 ];
 
@@ -113,7 +113,7 @@ async function callAI(prompt, maxTokens = 600) {
 // SYSTEM PROMPT
 // ─────────────────────────────────────────────────────────────────────────────
 function buildSystem(brutal) {
-  const base = `You are Courtside AI — an elite tennis analyst for Wimbledon ${WIMBLEDON_YEAR}. You have deep knowledge of ATP and WTA players, grass court tennis, serve patterns, tactical analysis and match history. You have live web search access — use it for current match scores, results and rankings.
+  const base = `You are Courtside AI — an elite tennis analyst for the grass court season ${SEASON_YEAR}. You have deep knowledge of ATP and WTA players, grass court tennis, serve patterns, tactical analysis and match history. You have live web search access — use it for current match scores, results and rankings.
 
 Your analysis is specific, tactical and grounded in real data. Explain things in language casual fans understand without dumbing down the insight. Cover serve patterns, grass court suitability, head-to-head records, set-by-set momentum, choke points and upset probability.`;
 
@@ -212,7 +212,7 @@ function LicenceGate({ onUnlock }) {
                 letterSpacing:"-0.5px", background:"linear-gradient(135deg,#C9A84C,#fff)",
                 WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent" }}>Courtside AI</div>
               <div style={{ fontFamily:"'JetBrains Mono',monospace", fontWeight:600, fontSize:10,
-                color:"rgba(201,168,76,.5)", letterSpacing:2.5, marginTop:4 }}>WIMBLEDON {WIMBLEDON_YEAR} · AI TENNIS ANALYST</div>
+                color:"rgba(201,168,76,.5)", letterSpacing:2.5, marginTop:4 }}>GRASS COURT SEASON {SEASON_YEAR} · AI TENNIS ANALYST</div>
             </div>
           </div>
 
@@ -226,7 +226,7 @@ function LicenceGate({ onUnlock }) {
 
           <div style={{ fontFamily:"'Inter',sans-serif", fontWeight:500, fontSize:17,
             color:"rgba(255,255,255,.55)", lineHeight:1.75, marginBottom:44, maxWidth:460 }}>
-            Serve pattern analysis · Choke point prediction · Upset probability · Grass Court Scores — for every match at The Championships.
+            Serve pattern analysis · Choke point prediction · Upset probability · Grass Court Scores — for every match at The grass court major.
           </div>
 
           <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:9, maxWidth:500 }}>
@@ -250,7 +250,7 @@ function LicenceGate({ onUnlock }) {
             background:"linear-gradient(135deg,#C9A84C,#fff)",
             WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent", marginBottom:6 }}>Courtside AI</div>
           <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:9,
-            color:"rgba(201,168,76,.5)", letterSpacing:2, marginBottom:18 }}>WIMBLEDON {WIMBLEDON_YEAR} · AI TENNIS ANALYST</div>
+            color:"rgba(201,168,76,.5)", letterSpacing:2, marginBottom:18 }}>GRASS COURT SEASON {SEASON_YEAR} · AI TENNIS ANALYST</div>
           <div style={{ display:"flex", flexWrap:"wrap", gap:6, justifyContent:"center" }}>
             {FEATS.slice(0,8).map(([ic,lbl]) => (
               <div key={lbl} style={{ display:"flex", alignItems:"center", gap:5,
@@ -342,7 +342,7 @@ function LicenceGate({ onUnlock }) {
               background:"rgba(201,168,76,.05)", cursor:"pointer", transition:"all .2s" }}>
               <div style={{ fontFamily:"'Inter',sans-serif", fontWeight:800,
                 fontSize: isWide ? 16 : 15, color:"#C9A84C", marginBottom:3 }}>
-                Get Championships Pass
+                Get Season Pass
               </div>
               <div style={{ fontFamily:"'JetBrains Mono',monospace", fontWeight:600,
                 fontSize: isWide ? 12 : 10, color:"rgba(201,168,76,.55)", letterSpacing:1 }}>
@@ -363,7 +363,7 @@ function LicenceGate({ onUnlock }) {
       <div style={{ position:"fixed", bottom:8, left:0, right:0, textAlign:"center",
         fontFamily:"'JetBrains Mono',monospace", fontSize:8.5,
         color:"rgba(255,255,255,.12)", letterSpacing:1 }}>
-        NOT AFFILIATED WITH THE AELTC OR WIMBLEDON · STATISTICAL ANALYSIS · ENTERTAINMENT ONLY · NOT BETTING ADVICE · 18+
+        INDEPENDENT ANALYSIS TOOL · NOT AFFILIATED WITH ANY TOURNAMENT ORGANISER · ENTERTAINMENT ONLY · NOT BETTING ADVICE · 18+
       </div>
     </div>
   );
@@ -399,7 +399,7 @@ function SectionToggle({ icon, title, subtitle, open, onToggle, badge }) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// LIVE MATCHES — Uses Claude web search for real Wimbledon scores
+// LIVE MATCHES — Uses Claude web search for real the grass court major scores
 // ─────────────────────────────────────────────────────────────────────────────
 function LiveMatches({ onSelectMatch, onFixtures }) {
   const STATIC_TODAY = [
@@ -428,8 +428,8 @@ function LiveMatches({ onSelectMatch, onFixtures }) {
           model: "claude-sonnet-4-6",
           max_tokens: 800,
           stream: false,
-          system: `You are a tennis data assistant. Search the web for today's live Wimbledon ${WIMBLEDON_YEAR} match scores and schedule. Return ONLY raw JSON, no markdown.`,
-          messages: [{ role:"user", content:`Search for Wimbledon ${WIMBLEDON_YEAR} matches today ${new Date().toLocaleDateString("en-GB")}. Return JSON array:
+          system: `You are a tennis data assistant. Search the web for today's live the grass court major ${SEASON_YEAR} match scores and schedule. Return ONLY raw JSON, no markdown.`,
+          messages: [{ role:"user", content:`Search for the grass court season ${SEASON_YEAR} matches today ${new Date().toLocaleDateString("en-GB")}. Return JSON array:
 [{"id":"m1","p1":"N. Djokovic","p1f":"🇷🇸","p2":"C. Alcaraz","p2f":"🇪🇸","court":"Centre Court","time":"14:00","status":"LIVE","score":"6-4, 3-2","round":"QF","seed1":1,"seed2":2}]
 status must be LIVE, UPCOMING, or COMPLETE. Include score if LIVE or COMPLETE. Return all matches today.` }],
         }),
@@ -485,7 +485,7 @@ status must be LIVE, UPCOMING, or COMPLETE. Include score if LIVE or COMPLETE. R
             </div>
             <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:9.5,
               color:"rgba(201,168,76,.45)", letterSpacing:1.5, marginTop:2 }}>
-              {new Date().toLocaleDateString("en-GB", { weekday:"long", day:"numeric", month:"long" }).toUpperCase()} · WIMBLEDON {WIMBLEDON_YEAR}
+              {new Date().toLocaleDateString("en-GB", { weekday:"long", day:"numeric", month:"long" }).toUpperCase()} · GRASS COURT SEASON {SEASON_YEAR}
             </div>
           </div>
         </div>
@@ -578,7 +578,7 @@ function ServePatternAnalyser({ match }) {
     fetchLock.current = true;
     setLoading(true);
     try {
-      const d = await callAI(`Analyse the serving patterns of ${match.p1} and ${match.p2} on grass courts at Wimbledon. Return JSON:
+      const d = await callAI(`Analyse the serving patterns of ${match.p1} and ${match.p2} on grass courts in the grass court major. Return JSON:
 {"p1_name":"${match.p1}","p1_first_serve_pct":72,"p1_ace_rate":"8.2%","p1_key_patterns":["Dominant T-serve on deuce court","Body serve under break-point pressure","Wide serve to ad court to open up the forehand"],"p1_weakness":"Second serve exploitable when opponent moves early","p2_name":"${match.p2}","p2_first_serve_pct":68,"p2_ace_rate":"6.1%","p2_key_patterns":["Heavy kick serve to backhand","Varies pace to disrupt rhythm","Aggressive first-serve plus net approach"],"p2_weakness":"Slower ball toss telegraphs direction","tactical_edge":"${match.p1}","insight":"Two-sentence tactical summary of how serving patterns will decide this match"}`, 700);
       servePatternCache[key] = d;
       setData(d);
@@ -663,7 +663,7 @@ function ChokePointPredictor({ match }) {
     fetchLock.current = true;
     setLoading(true);
     try {
-      const d = await callAI(`Analyse the choke-point tendencies of ${match.p1} and ${match.p2} in Grand Slam matches. Return JSON:
+      const d = await callAI(`Analyse the choke-point tendencies of ${match.p1} and ${match.p2} in major tournament matches. Return JSON:
 {"p1_name":"${match.p1}","p1_choke_risk":"LOW","p1_risk_moments":["Serving for a set at 5-4","Tiebreak at 5-5","After losing a long rally"],"p1_historical":"Wins 82% of sets when serving for them","p2_name":"${match.p2}","p2_choke_risk":"MEDIUM","p2_risk_moments":["Second-set letdown after winning first","Net approach under pressure","Facing break points on fast surfaces"],"p2_historical":"Has been broken while serving for set in 3 of last 5 Slams","critical_moment":"The most likely choke point in this specific match","predicted_momentum":"Who handles pressure better and why in one sentence"}`, 700);
       matchAnalysisCache[key] = d;
       setData(d);
@@ -740,7 +740,7 @@ function UpsetProbability({ match }) {
     fetchLock.current = true;
     setLoading(true);
     try {
-      const d = await callAI(`Calculate upset probability for ${match.p1} (seed ${match.seed1||"?"}) vs ${match.p2} (seed ${match.seed2||"?"}) at Wimbledon ${WIMBLEDON_YEAR}. An upset is if the lower seed or underdog wins. Return JSON:
+      const d = await callAI(`Calculate upset probability for ${match.p1} (seed ${match.seed1||"?"}) vs ${match.p2} (seed ${match.seed2||"?"}) in the grass court major ${SEASON_YEAR}. An upset is if the lower seed or underdog wins. Return JSON:
 {"favourite":"${match.p1}","underdog":"${match.p2}","upset_probability":34,"upset_factors":["Underdog has strong grass court record","Favourite inconsistent on second serve","Head-to-head shows tight matches"],"upset_blockers":["Favourite's experience at this stage","Higher ranking reflects form difference","Serve speed advantage on fast surface"],"verdict":"POSSIBLE UPSET","confidence":"MEDIUM","one_line":"The decisive factor in one sentence"}`, 700);
       upsetProbCache[key] = d;
       setData(d);
@@ -844,7 +844,7 @@ function GrassCourtScores() {
     fetchLock.current = true;
     setLoading(true);
     try {
-      const d = await callAI(`Rate the grass court suitability of the top 8 men's and women's players at Wimbledon ${WIMBLEDON_YEAR}. Consider serve effectiveness, net game, movement on grass, and historical grass results. Return JSON:
+      const d = await callAI(`Rate the grass court suitability of the top 8 men's and women's players in the grass court major ${SEASON_YEAR}. Consider serve effectiveness, net game, movement on grass, and historical grass results. Return JSON:
 {"mens":[{"player":"N. Djokovic","flag":"🇷🇸","seed":1,"score":9.4,"serve":9.5,"movement":9.2,"net_game":8.8,"reason":"Serve-dominant game tailor-made for grass, record 7 titles"},{"player":"C. Alcaraz","flag":"🇪🇸","seed":2,"score":8.9,"serve":8.7,"movement":9.1,"net_game":9.2,"reason":"Natural grass court ability, defending champion, versatile game"}],"womens":[{"player":"I. Świątek","flag":"🇵🇱","seed":1,"score":8.1,"serve":8.4,"movement":8.3,"net_game":7.2,"reason":"Dominant baseline game adapts well but not a natural grass specialist"}]}`, 900);
       setData(d);
     } catch {
@@ -941,7 +941,7 @@ function ScorePredictor({ match }) {
     fetchLock.current = true;
     setLoading(true);
     try {
-      const d = await callAI(`Predict the most likely set-by-set scoreline for ${match.p1} vs ${match.p2} in the ${match.round||"match"} at Wimbledon ${WIMBLEDON_YEAR}. Return JSON:
+      const d = await callAI(`Predict the most likely set-by-set scoreline for ${match.p1} vs ${match.p2} in the ${match.round||"match"} in the grass court major ${SEASON_YEAR}. Return JSON:
 {"winner":"${match.p1}","score":"7-5, 6-4, 6-3","sets":[{"set":1,"p1":7,"p2":5,"analysis":"Tight opening set, ${match.p1} breaks late"},{"set":2,"p1":6,"p2":4,"analysis":"${match.p1} builds momentum with stronger serving"},{"set":3,"p1":6,"p2":3,"analysis":"Dominant finish, ${match.p2} tires"}],"match_duration":"2h 15m","key_stat":"First serve percentage will decide this match","confidence":"HIGH"}`, 600);
       scorePredCache[key] = d;
       setData(d);
@@ -1022,7 +1022,7 @@ const STATIC_CHAMP = {
     { player:"N. Djokovic", flag:"🇷🇸", chance:32, reasoning:"Seven titles, grass court GOAT, still the most complete player on the surface." },
     { player:"C. Alcaraz",  flag:"🇪🇸", chance:24, reasoning:"Defending champion, improving serve, youth and athleticism could carry him to back-to-back titles." },
     { player:"J. Sinner",   flag:"🇮🇹", chance:18, reasoning:"World No.1 form but grass is not his strongest surface — improving rapidly." },
-    { player:"H. Hurkacz",  flag:"🇵🇱", chance:10, reasoning:"Huge serve suits Wimbledon perfectly. Dark horse credentials are genuine." },
+    { player:"H. Hurkacz",  flag:"🇵🇱", chance:10, reasoning:"Huge serve suits the grass court major perfectly. Dark horse credentials are genuine." },
   ],
   womens: [
     { player:"E. Rybakina",  flag:"🇰🇿", chance:28, reasoning:"2022 champion. Her flat, powerful serve is perfectly built for grass. Returns here every year as a genuine contender." },
@@ -1031,7 +1031,7 @@ const STATIC_CHAMP = {
     { player:"C. Gauff",     flag:"🇺🇸", chance:14, reasoning:"Improving serve and grass court record. Major title incoming — could be here." },
   ],
   darkHorse: { player:"H. Hurkacz", flag:"🇵🇱", reasoning:"Massive serve, has beaten top players on grass before, and the draw could open up perfectly for him.", tour:"ATP" },
-  updated: "Based on seedings, current form and grass court historical data for Wimbledon 2026.",
+  updated: "Based on seedings, current form and grass court historical data for Grass Court Season 2026.",
 };
 
 function ChampionshipPredictor() {
@@ -1047,7 +1047,7 @@ function ChampionshipPredictor() {
     fetchLock.current = true;
     setLoading(true);
     try {
-      const d = await callAI(`Based on current form, draw, and grass court ability, rank the top 4 men's and women's players most likely to win Wimbledon ${WIMBLEDON_YEAR}. Search the web for current Wimbledon ${WIMBLEDON_YEAR} draw and results. Return JSON:
+      const d = await callAI(`Based on current form, draw, and grass court ability, rank the top 4 men's and women's players most likely to win the grass court major ${SEASON_YEAR}. Search the web for current the grass court major ${SEASON_YEAR} draw and results. Return JSON:
 {"mens":[{"player":"N. Djokovic","flag":"🇷🇸","chance":30,"reasoning":"One sentence on why"}],"womens":[{"player":"E. Rybakina","flag":"🇰🇿","chance":28,"reasoning":"One sentence"}],"darkHorse":{"player":"H. Hurkacz","flag":"🇵🇱","reasoning":"Why they could win","tour":"ATP"},"updated":"One sentence on what's driving these rankings right now"}`, 900);
       if (d?.mens?.length > 0) { setData(d); liveLoaded.current = true; }
     } catch {}
@@ -1059,7 +1059,7 @@ function ChampionshipPredictor() {
 
   return (
     <div style={{ background:"rgba(255,255,255,.02)", borderBottom:"1px solid rgba(201,168,76,.08)", flexShrink:0 }}>
-      <SectionToggle icon="🏆" title="Championship Predictor" subtitle="WHO WINS WIMBLEDON · AI RANKED" open={open} onToggle={() => setOpen(o=>!o)} />
+      <SectionToggle icon="🏆" title="Championship Predictor" subtitle="WHO WINS THE TITLE · AI RANKED" open={open} onToggle={() => setOpen(o=>!o)} />
       {open && (
         <div style={{ padding:"0 14px 14px" }}>
           <div style={{ display:"flex", gap:8, marginBottom:12 }}>
@@ -1142,9 +1142,9 @@ function WhatsAppDrop({ match, brutal }) {
     if (fetchLock.current) return;
     fetchLock.current = true;
     setLoading(true);
-    const matchCtx = match ? `${match.p1} vs ${match.p2}` : "today's Wimbledon matches";
+    const matchCtx = match ? `${match.p1} vs ${match.p2}` : "today's the grass court major matches";
     try {
-      const d = await callAI(`Generate 3 different WhatsApp messages about ${matchCtx} at Wimbledon ${WIMBLEDON_YEAR}. ${brutal ? "Be unfiltered and brutally honest." : "Be sharp and entertaining."} Return JSON:
+      const d = await callAI(`Generate 3 different WhatsApp messages about ${matchCtx} in the grass court major ${SEASON_YEAR}. ${brutal ? "Be unfiltered and brutally honest." : "Be sharp and entertaining."} Return JSON:
 {"drops":["Message 1 (expert pre-match preview, 2-3 sentences, include key stat)","Message 2 (tactical insight with emoji, what to watch for)","Message 3 (bold prediction with confidence rating)"]}`, 500);
       if (d?.drops?.length === 3) setDrops(d.drops);
     } catch {}
@@ -1287,7 +1287,7 @@ Return JSON: [{"p1":"${upcoming[0]?.p1||"Player A"}","p2":"${upcoming[0]?.p2||"P
         ) : (
           <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:9,
             color:"rgba(255,255,255,.2)", padding:"0 16px", letterSpacing:1 }}>
-            WIMBLEDON {WIMBLEDON_YEAR} · AI-POWERED ANALYSIS
+            GRASS COURT SEASON {SEASON_YEAR} · AI-POWERED ANALYSIS
           </div>
         )}
       </div>
@@ -1350,7 +1350,7 @@ export default function App() {
   if (!unlocked) return <LicenceGate onUnlock={() => setUnlocked(true)} />;
 
   // ── State ────────────────────────────────────────────────────────────────
-  const [messages,     setMessages]     = useState([{ role:"assistant", content:`Welcome to Courtside AI 🎾 — your personal tennis analyst for Wimbledon ${WIMBLEDON_YEAR}.\n\n✅ Today's matches are loading below. Tap any match to unlock Serve Pattern Analysis, Choke Point Prediction, Upset Probability and Score Predictor.\n\n😤 Tap BRUTAL for unfiltered, undiplomatic takes.\n\nAsk me anything about The Championships.` }]);
+  const [messages,     setMessages]     = useState([{ role:"assistant", content:`Welcome to Courtside AI 🎾 — your personal tennis analyst for the grass court season ${SEASON_YEAR}.\n\n✅ Today's matches are loading below. Tap any match to unlock Serve Pattern Analysis, Choke Point Prediction, Upset Probability and Score Predictor.\n\n😤 Tap BRUTAL for unfiltered, undiplomatic takes.\n\nAsk me anything about The grass court major.` }]);
   const [input,        setInput]        = useState("");
   const [loading,      setLoading]      = useState(false);
   const [streamingIdx, setStreamingIdx] = useState(null);
@@ -1428,7 +1428,7 @@ export default function App() {
         borderTop:"1px solid rgba(255,255,255,.04)" }}>
         <span style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:9,
           color:"rgba(255,255,255,.15)", letterSpacing:.5 }}>
-          Statistical analysis · Entertainment only · Not affiliated with AELTC · Not betting advice · 18+
+          Statistical analysis · Entertainment only · Independent tool, not affiliated with any tournament organiser · Not betting advice · 18+
         </span>
       </div>
       <div style={{ flexShrink:0, background:"rgba(12,18,12,.96)", backdropFilter:"blur(20px)",
@@ -1439,7 +1439,7 @@ export default function App() {
           <textarea ref={textRef} value={input}
             onChange={e => setInput(e.target.value)}
             onKeyDown={e => { if (e.key==="Enter" && !e.shiftKey && !loading) { e.preventDefault(); send(); }}}
-            placeholder={loading ? "Analysing..." : "Ask anything about Wimbledon 2026..."}
+            placeholder={loading ? "Analysing..." : "Ask anything about Grass Court Season 2026..."}
             rows={1}
             style={{ flex:1, background:"transparent", border:"none", fontFamily:"'Inter',sans-serif",
               fontSize:16, color:"#fff", resize:"none", outline:"none", lineHeight:1.5,
@@ -1523,7 +1523,7 @@ export default function App() {
                 background:"linear-gradient(135deg,#C9A84C,#fff)",
                 WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent" }}>Courtside AI</div>
               <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:9.5,
-                letterSpacing:1.8, marginTop:1, color:"rgba(201,168,76,.4)" }}>WIMBLEDON {WIMBLEDON_YEAR} · AI ANALYST</div>
+                letterSpacing:1.8, marginTop:1, color:"rgba(201,168,76,.4)" }}>GRASS COURT SEASON {SEASON_YEAR} · AI ANALYST</div>
             </div>
           </div>
           <div style={{ display:"flex", alignItems:"center", gap:7 }}>
@@ -1581,7 +1581,7 @@ export default function App() {
                   color:"rgba(201,168,76,.4)", letterSpacing:1.5, marginTop:2 }}>POWERED BY CLAUDE · LIVE WEB SEARCH</div>
               </div>
               <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:9.5,
-                color:"rgba(255,255,255,.2)", letterSpacing:1 }}>ASK ANYTHING ABOUT WIMBLEDON</div>
+                color:"rgba(255,255,255,.2)", letterSpacing:1 }}>ASK ANYTHING ABOUT THE SEASON</div>
             </div>
             {CHAT}
           </div>
